@@ -26,6 +26,10 @@ def generate_embedding(text):
 def load_embeddings():
     return pd.read_csv(EMBEDDING_FILE)
 
+###################
+## GENERATIION
+###################
+
 def inputs_from_file(file_path):
     return open(file_path, 'r')
 
@@ -40,6 +44,10 @@ def generate_to_file(inputs):
     input_vector_paris = generate(inputs)
     df = pd.DataFrame(input_vector_paris, columns=["text", "embedding"])
     df.to_csv(EMBEDDING_FILE, index=False)   
+
+###################
+## SEARCH
+###################
 
 def similarity_search(query: str, 
            source: pd.DataFrame=load_embeddings(), 
