@@ -2,7 +2,7 @@ import openai
 import os
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-CHAT_MODEL = "gpt-4"
+CHAT_MODEL = "gpt-4-1106-preview"
 SYSTEM_PROMPT="""
     You are a Software Engineer on conference.
 	You answer questions about Conference, Data Science, AI and Java.
