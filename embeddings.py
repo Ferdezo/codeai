@@ -40,10 +40,10 @@ def generate(inputs):
         input_vector_paris.append([input, embedding])
     return input_vector_paris
 
-def generate_to_file(inputs):
+def generate_to_file(inputs, filename=EMBEDDING_FILE):
     input_vector_paris = generate(inputs)
     df = pd.DataFrame(input_vector_paris, columns=["text", "embedding"])
-    df.to_csv(EMBEDDING_FILE, index=False)   
+    df.to_csv(filename, index=False)   
 
 ###################
 ## SEARCH
@@ -67,13 +67,28 @@ def similarity_search(query: str,
 def find_similar(input):
     return similarity_search(query=input, source=load_embeddings())
 
-# print(get_embedding('Java'))
-# generate_to_file(["Java", "C#", "Python"])
+############
+# Example
+############
+# print(generate('Java'))
+
+############
+# "Database"
+############
+# temp_embeddings_file = "prog_lang_embeddings.csv"
+# EMBEDDING_FILE=temp_embeddings_file
+
+# generate_to_file(["Java", "C#", "Python"], temp_embeddings_file)
+
 # print(find_similar("Island"))
 # print(find_similar("Snake"))
 # print(find_similar("WinForms"))
 # print(find_similar("Programming Language"))
 
+############
+# Chat
+############
+# EMBEDDING_FILE = "base_embeddings.csv"
 # inputs = inputs_from_file('tech_embeddings.csv')
 # generate_to_file(inputs)
 

@@ -19,11 +19,7 @@ while True:
 		print(f"{ASSISTANT_NAME}: I'll be back! (▀̿Ĺ̯▀̿ ̿)")
 		break
 
-	genai_answer = streamed_answer(user_input)
-	# genai_answer = streamed_answer_with_embeddings(user_input)
+	# genai_answer = streamed_answer(user_input)
+	genai_answer = streamed_answer_with_embeddings(user_input)
 	type_answer(genai_answer)
 	
-
-
-
-
